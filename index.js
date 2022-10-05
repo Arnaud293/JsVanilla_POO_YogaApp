@@ -85,6 +85,19 @@ const utils = {
                 })
             })
         })
+    },
+
+    deleteItem : function () {
+        document.querySelectorAll('.deleteBtn').forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                let newArray = excerciceArray.filter((exo) => {
+                    return exo.pic != e.target.dataset.pic;
+                    
+                }) 
+                excerciceArray = newArray;
+                console.log(newArray)
+            })
+        })
     }
 }
 
@@ -112,6 +125,7 @@ const page = {
         );
         utils.handleEventMinutes();
         utils.handleEventArrow();
+        utils.deleteItem();
     },
 
     routine: function(){
