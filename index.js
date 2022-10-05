@@ -55,7 +55,22 @@ let excerciceArray = [];
 })();
 
 class Exercice {
+    constructor(){
+        this.index = 0;
+        this.minutes = excerciceArray[this.index].min;
+        this.seconds = 0;
+    }
 
+    updateCountdown(){
+        return (main.innerHTML = 
+        `
+            <div class='exercice-container'>
+                <p>${this.minutes} : ${this.seconds}</p>
+                <img src='./img/${excerciceArray[this.index].pic}.png' />
+                <div>${this.index + 1} / ${excerciceArray.length}</div>
+            </div>
+        `)
+    }
 }
 
 const utils = {
@@ -151,13 +166,15 @@ const page = {
         utils.deleteItem();
         reboot.addEventListener('click', () => {
             utils.reboot();
-        })
+        });
+        start.addEventListener('click', () => this.routine());
     },
 
     routine: function(){
+        const exercice = new Exercice();
         utils.pageContent(
             "Routine",
-            "Exercice avec chrono",
+            exercice.updateCountdown(),
             null
         )
     },
