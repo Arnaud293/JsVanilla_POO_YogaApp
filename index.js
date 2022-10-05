@@ -48,7 +48,7 @@ let excerciceArray = [];
 
 (() => {
     if(localStorage.exercices){
-        excerciceArray = localStorage.exercices;
+        excerciceArray = JSON.parse(localStorage.exercices);
     }else {
         excerciceArray = basicArray;
     }
@@ -71,7 +71,7 @@ const utils = {
                 excerciceArray.map((exo) => {
                     if (exo.pic == e.target.id){
                         exo.min = Number(e.target.value);
-                        console.log(excerciceArray)
+                        this.store();
                     }
                 })
             })
@@ -89,6 +89,7 @@ const utils = {
                         [excerciceArray[position], excerciceArray[position -1]] =
                         [excerciceArray[position -1], excerciceArray[position]];
                         page.lobby();
+                        this.store();
                     } else {
                         position ++;
                     }
@@ -106,6 +107,7 @@ const utils = {
                 }) 
                 excerciceArray = newArray;
                 page.lobby();
+                this.store();
             })
         })
     },
@@ -113,6 +115,12 @@ const utils = {
     reboot : function () {
         excerciceArray = basicArray;
         page.lobby();
+        this.store();
+    },
+
+    store : function (){
+        // create exercices
+        localStorage.exercices = JSON.stringify(excerciceArray);
     }
 }
 
