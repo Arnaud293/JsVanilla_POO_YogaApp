@@ -58,9 +58,21 @@ const utils = {
 
 const page = {
     lobby : function () {
+
+        let mapArray = excerciceArray.map((exo) => {
+            return `
+                <li>
+                    <div class='card-header'>
+                        <input type='number' id=${exo.pic} min='1' max='10' value=${exo.min}>
+                        <span>min</span>
+                    </div>
+                </li>
+            `;
+        }).join('');
+
         utils.pageContent(
             "Paramétrage <i id='reboot' class='fas fa-undo'></i>",
-            "Exercices",
+            "<ul>" + mapArray + "</ul>",
             "<button id='start'> Commencer <i class='fas fa-play-circle'></i></button>s"
         )
     },
