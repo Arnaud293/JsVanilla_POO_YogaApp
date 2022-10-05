@@ -62,6 +62,31 @@ class Exercice {
     }
 
     updateCountdown(){
+        this.seconds = this.seconds < 10 ? "0" + this.seconds : this.seconds;
+
+        setTimeout(() => {
+            if(this.minutes == 0 && this.seconds == '00'){
+                this.index ++;
+
+                if(this.index < excerciceArray.length){
+                this.minutes = excerciceArray[this.index].min;    
+                this.seconds = 0;    
+                this.updateCountdown();
+                } else{
+                    return page.finish();
+                }
+            }
+            else if (this.seconds === '00'){
+                this.minutes --;
+                this.seconds = 59;
+                this.updateCountdown();
+            }
+            else {
+                this.seconds --;
+                this.updateCountdown();
+            }
+        }, 100)
+
         return (main.innerHTML = 
         `
             <div class='exercice-container'>
