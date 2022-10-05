@@ -54,6 +54,20 @@ const utils = {
         main.innerHTML = content;
         document.querySelector('.btn-container').innerHTML = btn;
     },
+
+    handleEventMinutes : function(){
+        document.querySelectorAll("input[type='number']").forEach((input) => {
+            input.addEventListener('input', (e) => {
+                excerciceArray.map((exo) => {
+                    if (exo.pic == e.target.id){
+                        exo.min = Number(e.target.value);
+                        console.log(excerciceArray)
+                    }
+                })
+            })
+        });
+
+    }
 }
 
 const page = {
@@ -77,7 +91,8 @@ const page = {
             "Paramétrage <i id='reboot' class='fas fa-undo'></i>",
             "<ul>" + mapArray + "</ul>",
             "<button id='start'> Commencer <i class='fas fa-play-circle'></i></button>s"
-        )
+        );
+        utils.handleEventMinutes();
     },
 
     routine: function(){
