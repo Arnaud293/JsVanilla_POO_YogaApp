@@ -63,6 +63,22 @@ const page = {
             "Exercices",
             "<button id='start'> Commencer <i class='fas fa-play-circle'></i></button>s"
         )
+    },
+
+    routine: function(){
+        utils.pageContent(
+            "Routine",
+            "Exercice avec chrono",
+            null
+        )
+    },
+
+    finish : function(){
+        utils.pageContent(
+            "Terminé !",
+            "<button id='start'>Recommencer</button>",
+            "<button id='reboot' class='btn-reboot'>Réinitialiser <i class='fas fa-times-circles'></i></button>'"
+        )
     }
 }
 
