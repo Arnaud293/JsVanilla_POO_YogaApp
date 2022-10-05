@@ -67,6 +67,23 @@ const utils = {
             })
         });
 
+    },
+
+    handleEventArrow : function (){
+        document.querySelectorAll('.arrow').forEach((arrow) => {
+            arrow.addEventListener('click', (e) => {
+                let position = 0;
+                excerciceArray.map((exo) => {
+                    if(exo.pic == e.target.dataset.pic && position !== 0){
+                        
+                        [excerciceArray[position], excerciceArray[position -1]] =
+                        [excerciceArray[position -1], excerciceArray[position]];
+                    } else {
+                        position ++;
+                    }
+                })
+            })
+        })
     }
 }
 
@@ -93,6 +110,7 @@ const page = {
             "<button id='start'> Commencer <i class='fas fa-play-circle'></i></button>s"
         );
         utils.handleEventMinutes();
+        utils.handleEventArrow();
     },
 
     routine: function(){
