@@ -67,6 +67,7 @@ class Exercice {
         setTimeout(() => {
             if(this.minutes == 0 && this.seconds == '00'){
                 this.index ++;
+                this.ring();
 
                 if(this.index < excerciceArray.length){
                 this.minutes = excerciceArray[this.index].min;    
@@ -95,6 +96,12 @@ class Exercice {
                 <div>${this.index + 1} / ${excerciceArray.length}</div>
             </div>
         `)
+    }
+
+    ring () {
+        const audio = new Audio();
+        audio.src ='ring.mp3';
+        audio.play();
     }
 }
 
