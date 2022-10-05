@@ -1,6 +1,5 @@
 const main = document.querySelector('main');
-
-let excerciceArray = [
+const basicArray = [
     {
         pic : 0,
         min : 1
@@ -41,7 +40,10 @@ let excerciceArray = [
         pic : 9,
         min : 1
     },
-   
+]
+
+let excerciceArray = [
+    
 ]
 
 class Exercice {
@@ -98,6 +100,11 @@ const utils = {
                 page.lobby();
             })
         })
+    },
+
+    reboot : function () {
+        excerciceArray = basicArray;
+        page.lobby();
     }
 }
 
@@ -126,6 +133,9 @@ const page = {
         utils.handleEventMinutes();
         utils.handleEventArrow();
         utils.deleteItem();
+        reboot.addEventListener('click', () => {
+            utils.reboot();
+        })
     },
 
     routine: function(){
