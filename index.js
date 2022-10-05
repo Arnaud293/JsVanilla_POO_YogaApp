@@ -42,9 +42,17 @@ const basicArray = [
     },
 ]
 
-let excerciceArray = [
-    
-]
+let excerciceArray = [];
+
+// Automaticly get stored exercices
+
+(() => {
+    if(localStorage.exercices){
+        excerciceArray = localStorage.exercices;
+    }else {
+        excerciceArray = basicArray;
+    }
+})();
 
 class Exercice {
 
