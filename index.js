@@ -95,7 +95,7 @@ const utils = {
                     
                 }) 
                 excerciceArray = newArray;
-                console.log(newArray)
+                page.lobby();
             })
         })
     }
