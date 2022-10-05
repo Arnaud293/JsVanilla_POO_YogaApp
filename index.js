@@ -78,6 +78,7 @@ const utils = {
                         
                         [excerciceArray[position], excerciceArray[position -1]] =
                         [excerciceArray[position -1], excerciceArray[position]];
+                        page.lobby();
                     } else {
                         position ++;
                     }
